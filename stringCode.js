@@ -93,9 +93,11 @@ function checkPalin(){
 
 //Audio Control
 function playBGM(){
-    //Function start output
+    //create the audio
     generateAudio();
+    //prevent stacking of audio elements, run once
     generateAudio=function(){};
+    //audio control console output
     console.log("playBGM toggling audio")
     if(isPlaying==true){
         mySound.stop();
@@ -108,12 +110,13 @@ function playBGM(){
     
 }
 
+//generate audio
 function generateAudio(){
     console.log("generateAudio() started");
     mySound = new startSound("masseffect_galaxymap.mp3");
 }
 
-//Sound element generation
+//Sound element generation definition
 function startSound(srcFile){
     this.sound = document.createElement("audio");
     this.sound.src = srcFile;
